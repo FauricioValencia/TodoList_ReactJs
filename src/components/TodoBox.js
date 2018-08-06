@@ -10,10 +10,6 @@ class TodoBox extends Component {
     };
     this.onSubmit=this.onSubmit.bind(this);
   }
-  // onSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.onSubmit(e);//asi se pasa el metodo por props al padre
-  // }
   onSubmit(e){
     e.preventDefault();
     this.props.onSubmit(e);
@@ -28,12 +24,15 @@ class TodoBox extends Component {
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
+            className="TodoBox-input"
             value={this.state.todoText}
             onChange={e => {
               this.setState({ todoText: e.target.value });
             }}
           />
-          <input type="submit" value="Agregar" />
+          <input 
+          className="TodoBox-button"
+          type="submit" value="Agregar" />
         </form>
       </div>
     );

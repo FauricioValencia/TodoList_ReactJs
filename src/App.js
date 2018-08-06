@@ -20,11 +20,15 @@ class App extends Component {
     console.log('metodo del padre');
 
     let todoListValue = this.refs.todobox.getInputValue();
+    let newTodoItemValue = this.state.todoItems.concat(todoListValue);
+
+    this.setState({todoItems:newTodoItemValue});
     console.log(todoListValue);
   }
   render() {
     return (
       <div className="App">
+      <h1 className="App-title">Lista de tareas por hacer</h1>
         <TodoBox ref="todobox"onSubmit={this.onSubmit}/>
         <TodoList ref="todolist"items= {this.state.todoItems}/>
       </div>

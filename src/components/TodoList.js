@@ -6,14 +6,30 @@ import '../styles/TodoList.css';
 class TodoList extends Component {
   constructor(props){
     super(props);
+    this.state={
+      items:this.props.items
+    }
+  }
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps);
+    if(nextProps.items.length != this.state.items.length){
+      this.setState({items:nextProps.items})
+    }
   }
   render() {
     // let items = this.props.items.map((item,i, array)=>{
 
     // })
+    let items = this.props.items.map((item, i, array)=>{
+
+      return(
+        <TodoListItem name={item} key={i} className="item"/>
+      )
+    })
     return (
       <div className="TodoList">
       <ul>
+        {items}
       </ul>
       </div>
     );
